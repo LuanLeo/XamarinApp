@@ -16,9 +16,9 @@ namespace Assignment
             db.CreateTableAsync<Hike>();
         }
 
-        public Task<int> CreateHike(Hike hike)
+        public Task<int> CreateHike(Hike h)
         {
-            return db.InsertAsync(hike);
+            return db.InsertAsync(h);
         }
 
         public Task<List<Hike>> GetAllHike()
@@ -26,14 +26,14 @@ namespace Assignment
             return db.Table<Hike>().ToListAsync();
         }
 
-        public Task<int> UpdateHike(Hike hike)
+        public Task<int> UpdateHike(Hike h)
         {
-            return db.UpdateAsync(hike);
+            return db.UpdateAsync(h);
         }
 
-        public Task<int> DeleteHike(Hike hike)
+        public Task<int> DeleteHike(Hike h)
         {
-            return db.DeleteAsync(hike);
+            return db.DeleteAsync(h);
         }
     }
 }

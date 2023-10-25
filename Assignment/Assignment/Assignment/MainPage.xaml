@@ -7,7 +7,6 @@
         <ToolbarItem Text="Add"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-
     <StackLayout>
         <CollectionView x:Name="myCollectionView"
                      SelectionMode="Single"
@@ -17,14 +16,14 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Edit"
-                                           BackgroundColor="Orange"
-                                           CommandParameter="{Binding .}"
-                                           Invoked="SwipeItem_Invoked"/>
                                 <SwipeItem Text="Delete"
                                            BackgroundColor="Red"
                                            CommandParameter="{Binding .}"
                                            Invoked="SwipeItem_Invoked_1"/>
+                                <SwipeItem Text="Edit"
+                                           BackgroundColor="Orange"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="SwipeItem_Invoked"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid RowSpacing="0">
@@ -35,16 +34,16 @@
                                 <ColumnDefinition Width="100*"/>
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Name}"
-                            Grid.Row="0" 
-                            Grid.RowSpan="1"
-                            VerticalOptions="CenterAndExpand"
-                            FontSize="20"
-                            FontAttributes="Bold"
-                            TextTransform="Uppercase"/>
+                                Grid.Row="0" 
+                                Grid.RowSpan="1"
+                                VerticalOptions="CenterAndExpand"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextTransform="Uppercase"/>
                             <Label Text="{Binding Location}"
-                            Grid.Row="1" 
-                            Grid.RowSpan="1"
-                            TextTransform="Uppercase"/>
+                                Grid.Row="1" 
+                                Grid.RowSpan="1"
+                                TextTransform="Uppercase"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>

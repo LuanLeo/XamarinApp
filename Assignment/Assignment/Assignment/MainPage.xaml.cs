@@ -34,22 +34,22 @@ namespace Assignment
             await Navigation.PushAsync(new AddHike());
         }
 
-        async void SwipeItem_Invoked(object sender, EventArgs e)
+        async void SwipeItem_Invoked(object send, EventArgs e)
         {
-            var item = sender as SwipeItem;
-            var emp = item.CommandParameter as Hike;
+            var i = send as SwipeItem;
+            var em = i.CommandParameter as Hike;
             
-           await Navigation.PushAsync(new AddHike(emp));
+           await Navigation.PushAsync(new AddHike(em));
         }
 
-        async void SwipeItem_Invoked_1(object sender, EventArgs e)
+        async void SwipeItem_Invoked_1(object send, EventArgs e)
         {
-            var item = sender as SwipeItem;
-            var emp = item.CommandParameter as Hike;
-            var result = await DisplayAlert("Delete", $"Delete {emp.Name} from the database", "Yes", "No");
+            var i = send as SwipeItem;
+            var em = i.CommandParameter as Hike;
+            var result = await DisplayAlert("Delete", $"Delete {em.Name} from the database", "Yes", "No");
             if(result)
             { 
-                await App.mySQL.DeleteHike(emp);
+                await App.mySQL.DeleteHike(em);
                 myCollectionView.ItemsSource = await App.mySQL.GetAllHike();
             }
         }

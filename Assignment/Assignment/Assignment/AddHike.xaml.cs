@@ -16,34 +16,39 @@ namespace Assignment
         {
             InitializeComponent();
         }
-        Model.Hike _hike;
-        public AddHike(Model.Hike hike)
+
+        Model.Hike _h;
+
+        public AddHike(Model.Hike h)
         {
             InitializeComponent();
 
             Title = "Edit Hike";
-            _hike = hike;
+            _h = h;
 
-            nameEntry.Text = hike.Name;
-            locationEntry.Text = hike.Location;
-            dateEntry.Text = hike.Date;
-            parkingEntry.Text = hike.Parking;
-            lengthEntry.Text = hike.Length;
-            levelEntry.Text = hike.Level;
-            quantityEntry.Text = hike.FQuantity;
-            durationEntry.Text = hike.Duration;
-            descriptionEntry.Text = hike.Description;
+            nameEntry.Text = h.Name;
+            locationEntry.Text = h.Location;
+            dateEntry.Text = h.Date;
+            parkingEntry.Text = h.Parking;
+            lengthEntry.Text = h.Length;
+            levelEntry.Text = h.Level;
+            quantityEntry.Text = h.FQuantity;
+            durationEntry.Text = h.Duration;
+            descriptionEntry.Text = h.Description;
 
             nameEntry.Focus();
         }
 
-        async void Button_Clicked(object sender, EventArgs e)
+        async void Button_Clicked(object send, EventArgs e)
         {
-            if (string.IsNullOrEmpty(nameEntry.Text) || string.IsNullOrEmpty(locationEntry.Text))
+            if (string.IsNullOrEmpty(nameEntry.Text) || string.IsNullOrEmpty(locationEntry.Text)
+                || string.IsNullOrEmpty(dateEntry.Text) || string.IsNullOrEmpty(parkingEntry.Text)
+                || string.IsNullOrEmpty(lengthEntry.Text) || string.IsNullOrEmpty(levelEntry.Text)
+                || string.IsNullOrEmpty(quantityEntry.Text) || string.IsNullOrEmpty(durationEntry.Text))
             {
-                await DisplayAlert("Invalid", "Blank or whitespace value is Invalid", "OK");
+                await DisplayAlert("Invalid", "Lack of information", "OK");
             }
-            else if (_hike != null)
+            else if (_h != null)
             {
                 EditHike();
             }
@@ -70,19 +75,20 @@ namespace Assignment
             });
             await Navigation.PopAsync();
         }
+
         async void EditHike()
         {
-            _hike.Name = nameEntry.Text;
-            _hike.Location = locationEntry.Text;
-            _hike.Date = dateEntry.Text;
-            _hike.Parking = parkingEntry.Text;
-            _hike.Length = lengthEntry.Text;
-            _hike.Level = levelEntry.Text;
-            _hike.FQuantity = quantityEntry.Text;
-            _hike.Duration = durationEntry.Text;
-            _hike.Description = descriptionEntry.Text;
+            _h.Name = nameEntry.Text;
+            _h.Location = locationEntry.Text;
+            _h.Date = dateEntry.Text;
+            _h.Parking = parkingEntry.Text;
+            _h.Length = lengthEntry.Text;
+            _h.Level = levelEntry.Text;
+            _h.FQuantity = quantityEntry.Text;
+            _h.Duration = durationEntry.Text;
+            _h.Description = descriptionEntry.Text;
 
-            await App.mySQL.UpdateHike(_hike);
+            await App.mySQL.UpdateHike(_h);
             await Navigation.PopAsync();
         }
     }

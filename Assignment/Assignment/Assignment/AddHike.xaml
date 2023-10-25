@@ -15,7 +15,7 @@
                 <Entry Placeholder="Date"
                    x:Name="dateEntry"/>
                     
-                <Entry Placeholder="Parking"
+                <Entry Placeholder="Parking Available"
                    x:Name="parkingEntry"/>
                     
                 <Entry Placeholder="Length"
@@ -24,7 +24,7 @@
                 <Entry Placeholder="Level"
                    x:Name="levelEntry"/>
                     
-                <Entry Placeholder="Quantity"
+                <Entry Placeholder="Friend Quantity"
                    x:Name="quantityEntry"/>
                     
                 <Entry Placeholder="Duration"
